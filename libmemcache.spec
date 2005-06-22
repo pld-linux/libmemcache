@@ -1,7 +1,7 @@
 Summary:	libmemcache is the C API for memcached
 Name:		libmemcache
 Version:	1.2.4
-Release:	0.1
+Release:	0.2
 Epoch:		0
 License:	MIT
 Group:		Libraries
@@ -32,7 +32,7 @@ Features
 %package devel
 Summary:	Development libraries and header files for libmemcache library
 Group:		Development/Libraries
-Requires:	%{name}-devel = %{version}-%{release}
+Requires:	%{name} = %{version}-%{release}
 
 %description devel
 This is the package containing the development libraries and header
