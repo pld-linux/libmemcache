@@ -1,8 +1,8 @@
+%define		_beta	9
 Summary:	libmemcache is the C API for memcached
 Name:		libmemcache
-%define	_beta 9
 Version:	1.3.0
-Release:	0.%{_beta}.1
+Release:	0.beta%{_beta}.1
 Epoch:		0
 License:	MIT
 Group:		Libraries
