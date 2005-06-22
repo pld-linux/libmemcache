@@ -1,12 +1,12 @@
 Summary:	libmemcache is the C API for memcached
 Name:		libmemcache
-Version:	1.2.4
-Release:	0.2
+Version:	1.2.3
+Release:	0.1
 Epoch:		0
 License:	MIT
 Group:		Libraries
-Source0:	http://people.freebsd.org/~seanc/libmemcache/%{name}-%{version}.tar.bz2
-# Source0-md5:	1b4dada8c7176fb018b489e09e6964f1
+Source0:	http://people.FreeBSD.org/~seanc/ports/libmemcache/libmemcache-1.2.3.tar.bz2
+# Source0-md5:	018c4dd66b42c9a8605b2d9e08b910b4
 Patch0:		%{name}-install.patch
 URL:		http://people.freebsd.org/~seanc/libmemcache/
 BuildRequires:	pmk
