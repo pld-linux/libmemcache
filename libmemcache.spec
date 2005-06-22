@@ -1,15 +1,18 @@
 Summary:	libmemcache is the C API for memcached
 Name:		libmemcache
-Version:	1.2.3
-Release:	0.1
+%define	_beta 9
+Version:	1.3.0
+Release:	0.%{_beta}.1
 Epoch:		0
 License:	MIT
 Group:		Libraries
-Source0:	http://people.FreeBSD.org/~seanc/ports/libmemcache/libmemcache-1.2.3.tar.bz2
-# Source0-md5:	018c4dd66b42c9a8605b2d9e08b910b4
-Patch0:		%{name}-install.patch
+Source0:	http://people.freebsd.org/~seanc/libmemcache/%{name}-%{version}.beta%{_beta}.tar.bz2
+# Source0-md5:	7b2579095cd758e575f0e4ce5f686305
+Patch0:		%{name}-make.patch
 URL:		http://people.freebsd.org/~seanc/libmemcache/
-BuildRequires:	pmk
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -18,16 +21,16 @@ Features
   programs that need to use memcache(3) inside of Apache where both
   Apache and PHP have their own memory management systems.
 - Callback Interface. Using the callback interface, it's possible to
-  lump many gets together into a single get request with a great deal
-  of ease.
+  lump many gets together into a single get request with a great deal of
+  ease.
 - Multiple Client Side Hashes. memcache(3) supports multiple hashing
   methods to distribute load across multiple servers.
 - Multiple Servers. memcache(3) supports multiple servers.
 - Support for Garbage Collection. memcache(3) was written with the
   Bohem Garbage Collector in mind.
 - MIT Licensed. memcache(3) is as Open Source as it gets and can be
-  embedded in anything (commercial software, open source, etc). May
-  the GPL and its users rot in hell for their stupidity.
+  embedded in anything (commercial software, open source, etc). May the
+  GPL and its users rot in hell for their stupidity.
 
 %package devel
 Summary:	Development libraries and header files for libmemcache library
@@ -47,14 +50,18 @@ Requires:	%{name}-devel = %{version}-%{release}
 Static library for libmemcache.
 
 %prep
-%setup -q
+%setup -q -n %{name}-%{version}.beta%{_beta}
 %patch0 -p1
+cp -a test tests
+rm -f tests{,/*}/Makefile*
 
 %build
-pmk %{?debug:-e debug}
-%{__make} \
-	CC="%{__cc}" \
-	CFLAGS="-std=c99 %{rpmcflags}"
+%{__aclocal}
+%{__autoconf}
+%{__autoheader}
+%{__automake}
+%configure
+%{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -74,9 +81,10 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/libmemcache.so.*.*
 
 %files devel
-%doc regress.c
 %defattr(644,root,root,755)
+%doc tests/
 %{_includedir}/memcache.h
+%{_libdir}/libmemcache.la
 %attr(755,root,root) %{_libdir}/libmemcache.so
 
 %files static
