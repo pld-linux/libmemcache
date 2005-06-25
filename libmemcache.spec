@@ -1,5 +1,6 @@
 %define		_beta	9
-Summary:	libmemcache is the C API for memcached
+Summary:	libmemcache - the C API for memcached
+Summary(pl):	libmemcache - API C do memcached
 Name:		libmemcache
 Version:	1.3.0
 Release:	0.beta%{_beta}.1
@@ -16,7 +17,7 @@ BuildRequires:	libtool
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-Features
+Features:
 - Support for Multiple Memory Contexts. This is primarily used for
   programs that need to use memcache(3) inside of Apache where both
   Apache and PHP have their own memory management systems.
@@ -27,27 +28,49 @@ Features
   methods to distribute load across multiple servers.
 - Multiple Servers. memcache(3) supports multiple servers.
 - Support for Garbage Collection. memcache(3) was written with the
-  Bohem Garbage Collector in mind.
+  Boehm Garbage Collector in mind.
 - MIT Licensed. memcache(3) is as Open Source as it gets and can be
-  embedded in anything (commercial software, open source, etc). May the
-  GPL and its users rot in hell for their stupidity.
+  embedded in anything (commercial software, open source, etc).
+
+%description -l pl
+Mo¿liwo¶ci:
+- Obs³uga wielu kontekstów pamiêci; s³u¿y g³ównie do programów, które
+  musz± u¿ywaæ memcache(3) wewn±trz Apache'a, gdzie zarówno Apache jak
+  i PHP maj± w³asne systemy zarz±dzania pamiêci±.
+- Interfejs wywo³añ zwrotnych; przy jego u¿yciu mo¿na pogodziæ wiele
+  pobrañ w jedno ¿±danie pobrania znacznie u³atwiaj±c pracê.
+- Wiele haszy po stronie klienta; memcache(3) obs³uguje wiele metod
+  haszowania do rozdysponowania obci±¿enia na wiele serwerów.
+- Wiele serwerów; memcache(3) obs³uguje wiele serwerów.
+- Obsluga od¶miecacza; memcache(3) zosta³o napisane z my¶l± o Boehm
+  Garbage Collectorze.
+- Licencja MIT; memcache(3) to oprogramowanie z otwartymi ¼ród³ami,
+  które mo¿na osadziæ gdziekolwiek (w programowaniu komercyjnym, open
+  source itd.).
 
 %package devel
-Summary:	Development libraries and header files for libmemcache library
+Summary:	Header files for libmemcache library
+Summary(pl):	Pliki nag³ówkowe biblioteki libmemcache
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
 %description devel
-This is the package containing the development libraries and header
-files for libmemcache.
+This is the package containing the header files for libmemcache.
+
+%description devel -l pl
+Ten pakiet zawiera pliki nag³ówkowe biblioteki libmemcache.
 
 %package static
-Summary:	Static ... library
+Summary:	Static libmemcache library
+Summary(pl):	Statyczna biblioteka libmemcache
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
-Static library for libmemcache.
+Static libmemcache library.
+
+%description static -l pl
+Statyczna biblioteka libmemcache.
 
 %prep
 %setup -q -n %{name}-%{version}.beta%{_beta}
@@ -83,9 +106,9 @@ rm -rf $RPM_BUILD_ROOT
 %files devel
 %defattr(644,root,root,755)
 %doc tests/
-%{_includedir}/memcache.h
-%{_libdir}/libmemcache.la
 %attr(755,root,root) %{_libdir}/libmemcache.so
+%{_libdir}/libmemcache.la
+%{_includedir}/memcache.h
 
 %files static
 %defattr(644,root,root,755)
