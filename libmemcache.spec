@@ -2,13 +2,14 @@ Summary:	libmemcache - the C API for memcached
 Summary(pl):	libmemcache - API C do memcached
 Name:		libmemcache
 Version:	1.4.0
-%define		_beta	4
-Release:	0.beta%{_beta}.1
+%define		_beta	9
+%define		_rel 1
+Release:	0.beta%{_beta}.%{_rel}
 Epoch:		0
 License:	MIT
 Group:		Libraries
 Source0:	http://people.freebsd.org/~seanc/libmemcache/%{name}-%{version}.b%{_beta}.tar.bz2
-# Source0-md5:	74b6c17686a852a3f20d8e621fd0ab69
+# Source0-md5:	0e003d5dfbc6e59ec400019507f9a61d
 Patch0:		%{name}-make.patch
 URL:		http://people.freebsd.org/~seanc/libmemcache/
 BuildRequires:	autoconf
@@ -75,6 +76,8 @@ Statyczna biblioteka libmemcache.
 %prep
 %setup -q -n %{name}-%{version}.b%{_beta}
 %patch0 -p1
+
+# create tests dir without Makefiles
 cp -a test tests
 rm -f tests{,/*}/Makefile*
 
@@ -89,7 +92,7 @@ rm -f tests{,/*}/Makefile*
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%{__make} install \
+%{__make} -j1 install \
 	DESTDIR=$RPM_BUILD_ROOT
 
 %clean
@@ -108,9 +111,8 @@ rm -rf $RPM_BUILD_ROOT
 %doc tests/
 %attr(755,root,root) %{_libdir}/libmemcache.so
 %{_libdir}/libmemcache.la
+%{_includedir}/memcache
 %{_includedir}/memcache.h
-%{_includedir}/buffer.h
-%{_includedir}/_buffer.h
 
 %files static
 %defattr(644,root,root,755)
