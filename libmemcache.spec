@@ -2,14 +2,13 @@ Summary:	libmemcache - the C API for memcached
 Summary(pl):	libmemcache - API C do memcached
 Name:		libmemcache
 Version:	1.4.0
-%define		_beta	9
+%define		_rc rc1
 %define		_rel 1
-Release:	0.beta%{_beta}.%{_rel}
-Epoch:		0
+Release:	0.%{_rc}.%{_rel}
 License:	MIT
 Group:		Libraries
-Source0:	http://people.freebsd.org/~seanc/libmemcache/%{name}-%{version}.b%{_beta}.tar.bz2
-# Source0-md5:	0e003d5dfbc6e59ec400019507f9a61d
+Source0:	http://people.freebsd.org/~seanc/libmemcache/%{name}-%{version}.%{_rc}.tar.bz2
+# Source0-md5:	781bf8b0e56a29008f0d050933851803
 Patch0:		%{name}-make.patch
 URL:		http://people.freebsd.org/~seanc/libmemcache/
 BuildRequires:	autoconf
@@ -74,7 +73,7 @@ Static libmemcache library.
 Statyczna biblioteka libmemcache.
 
 %prep
-%setup -q -n %{name}-%{version}.b%{_beta}
+%setup -q -n %{name}-%{version}.%{_rc}
 %patch0 -p1
 
 # create tests dir without Makefiles
@@ -92,7 +91,7 @@ rm -f tests{,/*}/Makefile*
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%{__make} -j1 install \
+%{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
 %clean
