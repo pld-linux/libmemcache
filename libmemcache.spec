@@ -1,14 +1,14 @@
+%define		_rc rc2
+%define		_rel 1
 Summary:	libmemcache - the C API for memcached
 Summary(pl):	libmemcache - API C do memcached
 Name:		libmemcache
 Version:	1.4.0
-%define		_rc rc1
-%define		_rel 1
 Release:	0.%{_rc}.%{_rel}
 License:	MIT
 Group:		Libraries
 Source0:	http://people.freebsd.org/~seanc/libmemcache/%{name}-%{version}.%{_rc}.tar.bz2
-# Source0-md5:	781bf8b0e56a29008f0d050933851803
+# Source0-md5:	402c957cd71538c07a263542eeb513d1
 Patch0:		%{name}-make.patch
 URL:		http://people.freebsd.org/~seanc/libmemcache/
 BuildRequires:	autoconf
@@ -35,8 +35,8 @@ Features:
 %description -l pl
 Mo¿liwo¶ci:
 - Obs³uga wielu kontekstów pamiêci; s³u¿y g³ównie do programów, które
-  musz± u¿ywaæ memcache(3) wewn±trz Apache'a, gdzie zarówno Apache jak
-  i PHP maj± w³asne systemy zarz±dzania pamiêci±.
+  musz± u¿ywaæ memcache(3) wewn±trz Apache'a, gdzie zarówno Apache jak i
+  PHP maj± w³asne systemy zarz±dzania pamiêci±.
 - Interfejs wywo³añ zwrotnych; przy jego u¿yciu mo¿na pogodziæ wiele
   pobrañ w jedno ¿±danie pobrania znacznie u³atwiaj±c pracê.
 - Wiele haszy po stronie klienta; memcache(3) obs³uguje wiele metod
@@ -91,7 +91,7 @@ rm -f tests{,/*}/Makefile*
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%{__make} install \
+%{__make} install -j1 \
 	DESTDIR=$RPM_BUILD_ROOT
 
 %clean
