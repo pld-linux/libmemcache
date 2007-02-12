@@ -1,7 +1,7 @@
 %define		_rc rc2
 %define		_rel 1
 Summary:	libmemcache - the C API for memcached
-Summary(pl):	libmemcache - API C do memcached
+Summary(pl.UTF-8):   libmemcache - API C do memcached
 Name:		libmemcache
 Version:	1.4.0
 Release:	0.%{_rc}.%{_rel}
@@ -32,44 +32,44 @@ Features:
 - MIT Licensed. memcache(3) is as Open Source as it gets and can be
   embedded in anything (commercial software, open source, etc).
 
-%description -l pl
-Mo¿liwo¶ci:
-- Obs³uga wielu kontekstów pamiêci; s³u¿y g³ównie do programów, które
-  musz± u¿ywaæ memcache(3) wewn±trz Apache'a, gdzie zarówno Apache jak i
-  PHP maj± w³asne systemy zarz±dzania pamiêci±.
-- Interfejs wywo³añ zwrotnych; przy jego u¿yciu mo¿na pogodziæ wiele
-  pobrañ w jedno ¿±danie pobrania znacznie u³atwiaj±c pracê.
-- Wiele haszy po stronie klienta; memcache(3) obs³uguje wiele metod
-  haszowania do rozdysponowania obci±¿enia na wiele serwerów.
-- Wiele serwerów; memcache(3) obs³uguje wiele serwerów.
-- Obsluga od¶miecacza; memcache(3) zosta³o napisane z my¶l± o Boehm
+%description -l pl.UTF-8
+MoÅ¼liwoÅ›ci:
+- ObsÅ‚uga wielu kontekstÃ³w pamiÄ™ci; sÅ‚uÅ¼y gÅ‚Ã³wnie do programÃ³w, ktÃ³re
+  muszÄ… uÅ¼ywaÄ‡ memcache(3) wewnÄ…trz Apache'a, gdzie zarÃ³wno Apache jak i
+  PHP majÄ… wÅ‚asne systemy zarzÄ…dzania pamiÄ™ciÄ….
+- Interfejs wywoÅ‚aÅ„ zwrotnych; przy jego uÅ¼yciu moÅ¼na pogodziÄ‡ wiele
+  pobraÅ„ w jedno Å¼Ä…danie pobrania znacznie uÅ‚atwiajÄ…c pracÄ™.
+- Wiele haszy po stronie klienta; memcache(3) obsÅ‚uguje wiele metod
+  haszowania do rozdysponowania obciÄ…Å¼enia na wiele serwerÃ³w.
+- Wiele serwerÃ³w; memcache(3) obsÅ‚uguje wiele serwerÃ³w.
+- Obsluga odÅ›miecacza; memcache(3) zostaÅ‚o napisane z myÅ›lÄ… o Boehm
   Garbage Collectorze.
-- Licencja MIT; memcache(3) to oprogramowanie z otwartymi ¼ród³ami,
-  które mo¿na osadziæ gdziekolwiek (w programowaniu komercyjnym, open
+- Licencja MIT; memcache(3) to oprogramowanie z otwartymi ÅºrÃ³dÅ‚ami,
+  ktÃ³re moÅ¼na osadziÄ‡ gdziekolwiek (w programowaniu komercyjnym, open
   source itd.).
 
 %package devel
 Summary:	Header files for libmemcache library
-Summary(pl):	Pliki nag³ówkowe biblioteki libmemcache
+Summary(pl.UTF-8):   Pliki nagÅ‚Ã³wkowe biblioteki libmemcache
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
 %description devel
 This is the package containing the header files for libmemcache.
 
-%description devel -l pl
-Ten pakiet zawiera pliki nag³ówkowe biblioteki libmemcache.
+%description devel -l pl.UTF-8
+Ten pakiet zawiera pliki nagÅ‚Ã³wkowe biblioteki libmemcache.
 
 %package static
 Summary:	Static libmemcache library
-Summary(pl):	Statyczna biblioteka libmemcache
+Summary(pl.UTF-8):   Statyczna biblioteka libmemcache
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 Static libmemcache library.
 
-%description static -l pl
+%description static -l pl.UTF-8
 Statyczna biblioteka libmemcache.
 
 %prep
