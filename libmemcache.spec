@@ -1,7 +1,7 @@
 %define		_rc rc2
 %define		_rel 1
 Summary:	libmemcache - the C API for memcached
-Summary(pl.UTF-8):   libmemcache - API C do memcached
+Summary(pl.UTF-8):	libmemcache - API C do memcached
 Name:		libmemcache
 Version:	1.4.0
 Release:	0.%{_rc}.%{_rel}
@@ -50,7 +50,7 @@ Możliwości:
 
 %package devel
 Summary:	Header files for libmemcache library
-Summary(pl.UTF-8):   Pliki nagłówkowe biblioteki libmemcache
+Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki libmemcache
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
@@ -62,7 +62,7 @@ Ten pakiet zawiera pliki nagłówkowe biblioteki libmemcache.
 
 %package static
 Summary:	Static libmemcache library
-Summary(pl.UTF-8):   Statyczna biblioteka libmemcache
+Summary(pl.UTF-8):	Statyczna biblioteka libmemcache
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
