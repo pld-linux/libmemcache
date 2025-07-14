@@ -74,7 +74,7 @@ Statyczna biblioteka libmemcache.
 
 %prep
 %setup -q -n %{name}-%{version}.%{subver}
-%patch0 -p1
+%patch -P0 -p1
 
 # create tests dir without Makefiles
 cp -a test tests
